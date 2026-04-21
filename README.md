@@ -1,3 +1,5 @@
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/rezawr)
+
 # Hermes Dashboard
 
 Next.js dashboard for Hermes Agent state stored under `~/.hermes`.

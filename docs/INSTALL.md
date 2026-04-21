@@ -1,3 +1,5 @@
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/rezawr)
+
 # Install And Compose
 
 This dashboard only reads Hermes data. It does not run Hermes itself.
