@@ -24,6 +24,7 @@ function formatDate(value: string | number | null | undefined) {
     return String(value);
   }
   return new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Jakarta",
     dateStyle: "medium",
     timeStyle: "short",
   }).format(date);
