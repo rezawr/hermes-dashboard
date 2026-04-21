@@ -1,0 +1,10 @@
+services:
+  hermes-dashboard:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      HERMES_HOME: ${HERMES_HOME:-/hermes}
+      PORT: 3000
+    volumes:
+      - ${HERMES_HOME_HOST:-/home/reza/.hermes}:${HERMES_HOME:-/hermes}:ro
