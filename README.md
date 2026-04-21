@@ -2,7 +2,21 @@
 
 # Hermes Dashboard
 
-Next.js dashboard for Hermes Agent state stored under `~/.hermes`.
+Hermes Dashboard is an open-source dashboard for Hermes Agent. It gives self-hosted Hermes Agent users a clear view of session monitoring, token usage, cron job visibility, tool activity, subagent tracking, and runtime state.
+
+This project is built for Hermes Agent deployments that store runtime state such as `state.db`, `sessions`, `cron`, and `gateway_state.json` on disk. The dashboard can run separately from the agent as long as both share access to the same Hermes data directory.
+
+## Hermes Agent dashboard
+
+If you are looking for a Hermes Agent dashboard, Hermes monitoring dashboard, or a way to monitor Hermes Agent sessions and cron jobs, this project is designed for that use case.
+
+It is especially useful for:
+
+- monitoring Hermes Agent sessions
+- inspecting token usage and message volume
+- tracking cron jobs and recent runs
+- reviewing tool activity and execution history
+- following subagent activity and runtime state
 
 ## What it shows
 
@@ -44,6 +58,12 @@ The dashboard is read-only against the mounted Hermes directory.
 If Hermes Dashboard is useful for you, you can support development here:
 
 - GitHub Sponsors: https://github.com/sponsors/rezawr
+
+## Repository description
+
+Suggested GitHub repository description:
+
+`Open-source dashboard for Hermes Agent with session monitoring, token analytics, cron visibility, and activity tracing.`
 
 ## Data sources
 

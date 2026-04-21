@@ -2,6 +2,8 @@
 
 # Install And Compose
 
+Hermes Dashboard is an open-source dashboard for Hermes Agent. This install guide explains how to run the dashboard against Hermes Agent runtime data whether Hermes runs on your host machine or inside another Docker container.
+
 This dashboard only reads Hermes data. It does not run Hermes itself.
 
 ## Support
