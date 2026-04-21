@@ -15,6 +15,7 @@ Next.js dashboard for Hermes Agent state stored under `~/.hermes`.
 See [docs/INSTALL.md](/home/reza/work/hermes-dashboard/docs/INSTALL.md) for:
 
 - local install
+- using the published GHCR image
 - Docker Compose when Hermes runs on the host/terminal
 - Docker Compose when Hermes runs in another container
 - shared-volume examples

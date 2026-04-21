@@ -12,6 +12,47 @@ The dashboard needs access to the Hermes home directory, which usually contains:
 
 In most setups that directory is `~/.hermes`.
 
+## 0. Use the published image
+
+You do not need to build this project yourself if you want to deploy the published image.
+
+Published image:
+
+```bash
+ghcr.io/rezawr/hermes-dashboard:latest
+```
+
+Or pin a dated tag:
+
+```bash
+ghcr.io/rezawr/hermes-dashboard:2026-04-21
+```
+
+Use `image:` in Compose when you want to pull from GHCR:
+
+```yaml
+services:
+  hermes-dashboard:
+    image: ghcr.io/rezawr/hermes-dashboard:latest
+```
+
+Use `build:` only when you want to build from local source code:
+
+```yaml
+services:
+  hermes-dashboard:
+    build: .
+```
+
+If you only change runtime configuration later:
+
+- ports
+- env vars
+- labels
+- volumes
+
+you do **not** need to rebuild the image. Just update Compose and redeploy the container.
+
 ## 1. Local install
 
 Use this when you want to run the dashboard directly on the machine.
@@ -79,7 +120,7 @@ How it works:
 - inside the dashboard container that mount appears at `/hermes`
 - the app reads Hermes data from `HERMES_HOME=/hermes`
 
-Current compose file:
+Build-from-source example:
 
 ```yaml
 services:
@@ -92,6 +133,22 @@ services:
       PORT: 3000
     volumes:
       - ${HERMES_HOME_HOST:-/home/reza/.hermes}:${HERMES_HOME:-/hermes}:ro
+```
+
+Published-image example:
+
+```yaml
+services:
+  hermes-dashboard:
+    image: ghcr.io/rezawr/hermes-dashboard:latest
+    restart: unless-stopped
+    environment:
+      HERMES_HOME: /hermes
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/reza/.hermes:/hermes:ro
 ```
 
 ## 3. Docker Compose when Hermes runs in another container
@@ -114,7 +171,7 @@ services:
       - /srv/hermes-data:/root/.hermes
 
   hermes-dashboard:
-    build: .
+    image: ghcr.io/rezawr/hermes-dashboard:latest
     ports:
       - "3000:3000"
     environment:
@@ -132,6 +189,42 @@ What happens:
 
 This is the recommended container-to-container setup.
 
+### Real example: Hermes stores runtime data at `/opt/data`
+
+If your Hermes container mounts host data like this:
+
+```yaml
+services:
+  hermes-agent:
+    image: ghcr.io/hostinger/hvps-hermes-agent:latest
+    volumes:
+      - ./data:/opt/data
+```
+
+and `state.db` is found at:
+
+```bash
+/opt/data/state.db
+```
+
+then the dashboard should mount the same host path and use:
+
+```yaml
+services:
+  hermes-dashboard:
+    image: ghcr.io/rezawr/hermes-dashboard:latest
+    restart: unless-stopped
+    environment:
+      HERMES_HOME: /hermes
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/hermes:ro
+```
+
+Do **not** set `HERMES_HOME: /hermes/.hermes` in that case, because your actual DB is at `/opt/data/state.db`, not `/opt/data/.hermes/state.db`.
+
 ### Option B: both containers share the same named Docker volume
 
 Use this if Hermes already stores its data in a named volume.
@@ -146,7 +239,7 @@ services:
       - hermes_data:/root/.hermes
 
   hermes-dashboard:
-    build: .
+    image: ghcr.io/rezawr/hermes-dashboard:latest
     ports:
       - "3000:3000"
     environment:
@@ -179,6 +272,20 @@ If the answer is:
 
 then mount that same storage into the dashboard container.
 
+If you are unsure which path to use, check inside the Hermes container:
+
+```bash
+find /opt/data -maxdepth 4 -name state.db
+```
+
+or on the host:
+
+```bash
+find ./data -maxdepth 4 -name state.db
+```
+
+Then set `HERMES_HOME` to the mounted directory that contains that file.
+
 ## 5. Common mistakes
 
 ### Wrong: mounting the dashboard repo but not Hermes data
@@ -194,6 +301,7 @@ Correct examples:
 - `/home/reza/.hermes`
 - `/root/.hermes`
 - `/hermes`
+- `/hermes/.hermes` only when `state.db` is really inside that subdirectory
 
 Wrong examples:
 
@@ -221,6 +329,14 @@ You should see things like:
 
 If those are missing, the mount is wrong.
 
+You can also verify from inside the dashboard container:
+
+```bash
+ls -la $HERMES_HOME
+```
+
+If you do not see `state.db`, `sessions`, and `cron`, your `HERMES_HOME` value is wrong.
+
 ## 7. Minimal quick-start examples
 
 ### Hermes on host
@@ -241,6 +357,22 @@ Run:
 
 ```bash
 docker compose up --build
+```
+
+### Use the published image directly
+
+```yaml
+services:
+  hermes-dashboard:
+    image: ghcr.io/rezawr/hermes-dashboard:latest
+    restart: unless-stopped
+    environment:
+      HERMES_HOME: /hermes
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/reza/.hermes:/hermes:ro
 ```
 
 ### Hermes in another container with shared host directory
