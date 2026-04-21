@@ -2,6 +2,12 @@
 
 This dashboard only reads Hermes data. It does not run Hermes itself.
 
+## Support
+
+If Hermes Dashboard is useful for you, you can support development here:
+
+- GitHub Sponsors: https://github.com/sponsors/rezawr
+
 The dashboard needs access to the Hermes home directory, which usually contains:
 
 - `state.db`

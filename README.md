@@ -37,6 +37,12 @@ docker compose up --build
 
 The dashboard is read-only against the mounted Hermes directory.
 
+## Support
+
+If Hermes Dashboard is useful for you, you can support development here:
+
+- GitHub Sponsors: https://github.com/sponsors/rezawr
+
 ## Data sources
 
 - `state.db`
