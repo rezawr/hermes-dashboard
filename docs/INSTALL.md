@@ -78,6 +78,7 @@ Edit `.env`:
 ```bash
 HERMES_HOME=/home/reza/.hermes
 PORT=3000
+DASHBOARD_TIMEZONE=UTC
 ```
 
 Run:
@@ -116,6 +117,7 @@ Set:
 HERMES_HOME=/hermes
 HERMES_HOME_HOST=/home/reza/.hermes
 PORT=3000
+DASHBOARD_TIMEZONE=UTC
 ```
 
 Then run:
@@ -141,6 +143,7 @@ services:
     environment:
       HERMES_HOME: ${HERMES_HOME:-/hermes}
       PORT: 3000
+      DASHBOARD_TIMEZONE: ${DASHBOARD_TIMEZONE:-UTC}
     volumes:
       - ${HERMES_HOME_HOST:-/home/reza/.hermes}:${HERMES_HOME:-/hermes}:ro
 ```
@@ -155,6 +158,7 @@ services:
     environment:
       HERMES_HOME: /hermes
       PORT: 3000
+      DASHBOARD_TIMEZONE: UTC
     ports:
       - "3000:3000"
     volumes:
@@ -187,6 +191,7 @@ services:
     environment:
       HERMES_HOME: /hermes
       PORT: 3000
+      DASHBOARD_TIMEZONE: UTC
     volumes:
       - /srv/hermes-data:/hermes:ro
 ```
@@ -227,6 +232,7 @@ services:
     environment:
       HERMES_HOME: /hermes
       PORT: 3000
+      DASHBOARD_TIMEZONE: UTC
     ports:
       - "3000:3000"
     volumes:
@@ -255,6 +261,7 @@ services:
     environment:
       HERMES_HOME: /hermes
       PORT: 3000
+      DASHBOARD_TIMEZONE: UTC
     volumes:
       - hermes_data:/hermes:ro
 
@@ -295,6 +302,19 @@ find ./data -maxdepth 4 -name state.db
 ```
 
 Then set `HERMES_HOME` to the mounted directory that contains that file.
+
+Timezone is controlled separately with:
+
+```bash
+DASHBOARD_TIMEZONE=UTC
+```
+
+Use any valid IANA timezone name, for example:
+
+- `UTC`
+- `Asia/Jakarta`
+- `America/New_York`
+- `Europe/Berlin`
 
 ## 5. Common mistakes
 
@@ -361,6 +381,7 @@ Set:
 HERMES_HOME=/hermes
 HERMES_HOME_HOST=/home/reza/.hermes
 PORT=3000
+DASHBOARD_TIMEZONE=UTC
 ```
 
 Run:
@@ -379,6 +400,7 @@ services:
     environment:
       HERMES_HOME: /hermes
       PORT: 3000
+      DASHBOARD_TIMEZONE: UTC
     ports:
       - "3000:3000"
     volumes:

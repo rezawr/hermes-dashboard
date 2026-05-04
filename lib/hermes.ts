@@ -124,6 +124,7 @@ export type DashboardData = {
   cronRuns: CronRun[];
   sessions: SessionSummary[];
   activityFeed: ActivityItem[];
+  sessionDetails: Record<string, SessionDetail>;
   selectedSession: SessionDetail | null;
   platformBreakdown: Array<{
     source: string;
@@ -684,6 +685,7 @@ export async function loadDashboardData(selectedSessionId?: string): Promise<Das
     cronRuns,
     sessions: sqlite.sessions,
     activityFeed: sqlite.activityFeed,
+    sessionDetails: Object.fromEntries(sqlite.sessionDetails.entries()),
     selectedSession: selectedId ? sqlite.sessionDetails.get(selectedId) ?? null : null,
     platformBreakdown: sqlite.platformBreakdown,
   };

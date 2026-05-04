@@ -1,0 +1,1673 @@
+.shell {
+  display: grid;
+  height: 100svh;
+  overflow: hidden;
+  padding: 12px;
+  color: #18251d;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.16)),
+    linear-gradient(135deg, #d7edf1 0%, #f4ead0 38%, #cfe8b4 100%);
+}
+
+.shell button,
+.shell select,
+.shell textarea {
+  font: inherit;
+}
+
+.worldPanel,
+.inspector,
+.logbook,
+.conversationDock {
+  border: 2px solid #263c2d;
+  border-radius: 8px;
+  background: #fffdf2;
+  box-shadow: 0 6px 0 #263c2d;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.68fr);
+  gap: 18px;
+  padding: 18px;
+}
+
+.titleBlock {
+  display: grid;
+  gap: 8px;
+}
+
+.kicker,
+.sectionHead span,
+.worldTopline span,
+.inspectorTitle span,
+.noteBlock > span {
+  color: #5a6f63;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.titleBlock h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4.7rem);
+  line-height: 0.98;
+}
+
+.headerStats,
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+}
+
+.detailRow {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+}
+
+.detailRow span {
+  color: #647268;
+  font-size: 0.74rem;
+}
+
+.detailRow strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.95rem;
+}
+
+.setupStrip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 12px;
+}
+
+.segmented {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #263c2d;
+  border-radius: 8px;
+  background: #e4d4a7;
+}
+
+.segmented button,
+.messageForm button {
+  min-height: 38px;
+  border: 1px solid #263c2d;
+  border-radius: 6px;
+  color: #18251d;
+  background: #fff7d1;
+  cursor: pointer;
+}
+
+.segmented button:hover,
+.messageForm button:hover {
+  background: #ffe28a;
+}
+
+.segmented .activeSegment {
+  color: #fffdf2;
+  background: #276f55;
+}
+
+.setupText {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.setupText span {
+  color: #5a6f63;
+}
+
+.worldLayout {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  align-items: start;
+}
+
+.worldPanel {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.worldTopline {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  z-index: 18;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 10px;
+  border: 2px solid #263c2d;
+  border-radius: 8px;
+  background: rgba(255, 253, 242, 0.9);
+  box-shadow: 0 4px 0 rgba(38, 60, 45, 0.72);
+}
+
+.worldTopline div:first-child {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.worldTopline strong {
+  overflow-wrap: anywhere;
+}
+
+.worldCounters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.worldCounters span {
+  padding: 6px 8px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+  color: #263c2d;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.worldCounters .refreshProblem {
+  border-color: #b35b44;
+  color: #7f2f21;
+  background: #ffe1d7;
+}
+
+.worldMap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background: #8fcf74;
+  isolation: isolate;
+}
+
+.worldMap:focus-visible {
+  outline: 3px solid #437cc2;
+  outline-offset: 3px;
+}
+
+.town {
+  background: #8fcf74;
+}
+
+.cronHouse,
+.conversationHouse {
+  background: #d9c58f;
+}
+
+.tileLayer {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(38, 60, 45, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, #99d777 0%, #76bf69 52%, #b4dd73 100%);
+  background-size: 32px 32px, 32px 32px, auto;
+  image-rendering: pixelated;
+  z-index: 0;
+}
+
+.mapFeature {
+  position: absolute;
+  border: 2px solid rgba(38, 60, 45, 0.28);
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.water {
+  right: -4%;
+  bottom: 4%;
+  width: 31%;
+  height: 34%;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 2px, transparent 2px),
+    #62a7d7;
+  background-size: 18px 18px;
+}
+
+.field {
+  left: 3%;
+  top: 9%;
+  width: 21%;
+  height: 18%;
+  background:
+    linear-gradient(90deg, rgba(38, 60, 45, 0.2) 1px, transparent 1px),
+    #c8d86a;
+  background-size: 18px 18px;
+}
+
+.forest {
+  right: 4%;
+  top: 5%;
+  width: 20%;
+  height: 18%;
+  background:
+    radial-gradient(circle at 20% 50%, #2f7f4a 0 20%, transparent 21%),
+    radial-gradient(circle at 48% 46%, #22683f 0 22%, transparent 23%),
+    radial-gradient(circle at 76% 54%, #3c9557 0 21%, transparent 22%),
+    #8fcf74;
+}
+
+.path {
+  position: absolute;
+  border: 2px solid rgba(76, 55, 24, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+    #d7b56b;
+  background-size: 28px 28px;
+  z-index: 2;
+}
+
+.pathMain {
+  left: 12%;
+  top: 47%;
+  width: 75%;
+  height: 13%;
+}
+
+.pathBranchA {
+  left: 45%;
+  top: 18%;
+  width: 11%;
+  height: 61%;
+}
+
+.pathBranchB {
+  left: 18%;
+  top: 66%;
+  width: 48%;
+  height: 11%;
+}
+
+.houseBuilding {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  justify-items: center;
+  align-items: end;
+  width: 170px;
+  height: 138px;
+  padding: 14px 12px 18px;
+  border: 3px solid #263c2d;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, transparent 0 48%, rgba(0, 0, 0, 0.14) 49% 52%, transparent 53%),
+    #fffdf2;
+  box-shadow: 0 8px 0 rgba(38, 60, 45, 0.75);
+  transform: translate(-50%, -50%);
+}
+
+.houseBuilding::before {
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  top: -45px;
+  height: 55px;
+  border: 3px solid #263c2d;
+  border-radius: 8px 8px 3px 3px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 12px, transparent 12px 24px),
+    #b94848;
+  content: "";
+  transform: skewX(-11deg);
+}
+
+.houseBuilding span {
+  position: relative;
+  z-index: 2;
+  padding: 6px 9px;
+  border: 2px solid #263c2d;
+  border-radius: 5px;
+  background: #fff7d1;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.houseBuilding i {
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 42px;
+  height: 50px;
+  border: 3px solid #263c2d;
+  border-bottom: 0;
+  border-radius: 7px 7px 0 0;
+  background: #7b4d32;
+  transform: translateX(-50%);
+}
+
+.cronHouseBuilding {
+  left: 32%;
+  top: 35%;
+}
+
+.conversationHouseBuilding {
+  left: 68%;
+  top: 35%;
+}
+
+.conversationHouseBuilding::before {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 12px, transparent 12px 24px),
+    #437cc2;
+}
+
+.roomFloor,
+.roomWall,
+.roomRug,
+.counterDesk,
+.roomSign {
+  position: absolute;
+  z-index: 1;
+}
+
+.roomFloor {
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(38, 60, 45, 0.12) 1px, transparent 1px),
+    #d9c58f;
+  background-size: 34px 34px;
+}
+
+.roomWall {
+  left: 5%;
+  right: 5%;
+  top: 5%;
+  height: 24%;
+  border: 3px solid #263c2d;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(90deg, rgba(38, 60, 45, 0.08) 0 22px, transparent 22px 44px),
+    #fffdf2;
+}
+
+.roomRug {
+  left: 33%;
+  top: 58%;
+  width: 34%;
+  height: 18%;
+  border: 3px solid #263c2d;
+  border-radius: 8px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0 16px, transparent 16px 32px),
+    #b94848;
+}
+
+.conversationHouse .roomRug {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0 16px, transparent 16px 32px),
+    #437cc2;
+}
+
+.counterDesk {
+  left: 22%;
+  top: 24%;
+  width: 56%;
+  height: 13%;
+  border: 3px solid #263c2d;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent),
+    #9c6a3d;
+  box-shadow: 0 6px 0 rgba(38, 60, 45, 0.35);
+}
+
+.roomSign {
+  left: 50%;
+  top: 12%;
+  padding: 7px 12px;
+  border: 2px solid #263c2d;
+  border-radius: 6px;
+  background: #fff7d1;
+  font-size: 0.84rem;
+  font-weight: 900;
+  transform: translateX(-50%);
+}
+
+.doorEntity {
+  position: absolute;
+  z-index: 7;
+  display: grid;
+  min-width: 72px;
+  justify-items: center;
+  gap: 3px;
+  padding: 5px 7px;
+  border: 2px solid #263c2d;
+  border-radius: 7px;
+  color: #18251d;
+  background: #fff7d1;
+  box-shadow: 0 4px 0 #263c2d;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.doorEntity span {
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.doorEntity small {
+  color: #4d5f54;
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+
+.doorEntity:hover {
+  background: #ffe28a;
+}
+
+.exitDoor {
+  background: #e7f2ff;
+}
+
+.entityButton {
+  position: absolute;
+  z-index: 5;
+  display: grid;
+  width: 112px;
+  min-height: 100px;
+  justify-items: center;
+  gap: 3px;
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: #18251d;
+  background: rgba(255, 253, 242, 0.72);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.entityButton:hover,
+.selectedEntity {
+  border-color: #263c2d;
+  background: #fffdf2;
+  box-shadow: 0 4px 0 #263c2d;
+}
+
+.nearbyEntity {
+  border-color: #ffe28a;
+  box-shadow:
+    0 0 0 4px rgba(255, 226, 138, 0.55),
+    0 4px 0 #263c2d;
+}
+
+.entityName {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  color: #18251d;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entityButton small {
+  color: #4d5f54;
+  font-size: 0.68rem;
+}
+
+.sprite {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 48px;
+}
+
+.spriteShadow {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 1px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(24, 37, 29, 0.25);
+}
+
+.spriteBody,
+.sessionBody,
+.gatewayCore {
+  position: relative;
+  z-index: 1;
+  border: 2px solid #18251d;
+  box-shadow: inset -5px -5px 0 rgba(0, 0, 0, 0.14);
+}
+
+.spriteBody {
+  width: 38px;
+  height: 34px;
+  border-radius: 7px;
+  background: #2e9d67;
+}
+
+.workerEntity.blocked .spriteBody {
+  background: #d94c4c;
+}
+
+.workerEntity.waiting .spriteBody {
+  background: #d08a29;
+}
+
+.workerEntity.finished .spriteBody {
+  background: #2e9d67;
+}
+
+.workerEntity.sleeping .spriteBody {
+  background: #79827b;
+}
+
+.workerEntity.working .spriteBody {
+  animation: workerHop 0.8s steps(2, end) infinite;
+}
+
+.workerEntity.blocked .spriteBody {
+  animation: workerShake 0.32s steps(2, end) infinite;
+}
+
+.spriteBody::before,
+.spriteBody::after {
+  position: absolute;
+  top: -8px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #18251d;
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  background: inherit;
+  content: "";
+}
+
+.spriteBody::before {
+  left: 3px;
+}
+
+.spriteBody::after {
+  right: 3px;
+}
+
+.spriteEyeLeft,
+.spriteEyeRight {
+  position: absolute;
+  top: 10px;
+  width: 5px;
+  height: 7px;
+  background: #fffdf2;
+  border: 1px solid #18251d;
+}
+
+.spriteEyeLeft {
+  left: 9px;
+}
+
+.spriteEyeRight {
+  right: 9px;
+}
+
+.spritePanel {
+  position: absolute;
+  left: 12px;
+  bottom: 6px;
+  width: 14px;
+  height: 5px;
+  border: 1px solid #18251d;
+  background: #fff7d1;
+}
+
+.stateSpark {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  z-index: 2;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #18251d;
+  border-radius: 50%;
+  background: #2e9d67;
+}
+
+.stateSpark.working,
+.legendItem i.working,
+.statusBadge.working,
+.signalType.working {
+  background: #2e9d67;
+}
+
+.stateSpark.waiting,
+.legendItem i.waiting,
+.statusBadge.waiting,
+.signalType.waiting {
+  background: #d08a29;
+}
+
+.stateSpark.finished,
+.legendItem i.finished,
+.statusBadge.finished,
+.signalType.finished {
+  background: #437cc2;
+}
+
+.stateSpark.blocked,
+.legendItem i.blocked,
+.statusBadge.blocked,
+.signalType.blocked {
+  background: #d94c4c;
+}
+
+.stateSpark.sleeping,
+.legendItem i.sleeping,
+.statusBadge.sleeping,
+.signalType.sleeping {
+  background: #79827b;
+}
+
+.sessionBody {
+  display: grid;
+  grid-template-columns: repeat(3, 8px);
+  gap: 3px;
+  align-content: center;
+  justify-content: center;
+  width: 40px;
+  height: 38px;
+  border-radius: 7px;
+  background: #6e5aa8;
+}
+
+.sessionBody span {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #18251d;
+  background: #fffdf2;
+}
+
+.sessionEntity.working .sessionBody {
+  animation: workerHop 0.9s steps(2, end) infinite;
+}
+
+.gatewayEntity {
+  min-height: 114px;
+}
+
+.gatewayCore {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 44px;
+  border-radius: 7px;
+  background: #f2c14e;
+}
+
+.gatewayCore::before {
+  position: absolute;
+  top: -12px;
+  width: 24px;
+  height: 12px;
+  border: 2px solid #18251d;
+  border-bottom: 0;
+  background: #a35f3b;
+  content: "";
+}
+
+.gatewayLightOn,
+.gatewayLightOff {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #18251d;
+  border-radius: 50%;
+}
+
+.gatewayLightOn {
+  background: #2e9d67;
+}
+
+.gatewayLightOff {
+  background: #d08a29;
+}
+
+.npcEntity {
+  background: rgba(255, 253, 242, 0.84);
+}
+
+.addCronBody {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 38px;
+  border: 2px solid #18251d;
+  border-radius: 8px;
+  background: #f2c14e;
+  box-shadow: inset -5px -5px 0 rgba(0, 0, 0, 0.14);
+}
+
+.addCronBody::before {
+  position: absolute;
+  left: 8px;
+  top: -11px;
+  width: 20px;
+  height: 14px;
+  border: 2px solid #18251d;
+  border-bottom: 0;
+  border-radius: 9px 9px 0 0;
+  background: #276f55;
+  content: "";
+}
+
+.addCronPlus {
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border: 2px solid #18251d;
+  border-radius: 50%;
+  background: #fffdf2;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.playerLayer {
+  position: absolute;
+  z-index: 12;
+  width: 76px;
+  height: 98px;
+  transform: translate(-50%, -72%);
+  pointer-events: none;
+}
+
+.playerCharacter {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: 76px;
+  height: 98px;
+}
+
+.playerShadow {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 17px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(24, 37, 29, 0.3);
+}
+
+.playerFigure {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  align-content: end;
+  width: 44px;
+  height: 70px;
+  image-rendering: pixelated;
+}
+
+.playerHead,
+.playerBody,
+.playerLegs span {
+  border: 2px solid #18251d;
+  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.playerHead {
+  position: relative;
+  z-index: 3;
+  width: 30px;
+  height: 27px;
+  border-radius: 8px 8px 7px 7px;
+  background: #f1b889;
+}
+
+.playerHair {
+  position: absolute;
+  left: -3px;
+  top: -7px;
+  width: 36px;
+  height: 15px;
+  border: 2px solid #18251d;
+  border-radius: 8px 8px 3px 3px;
+  background: #263c2d;
+}
+
+.playerEyeLeft,
+.playerEyeRight {
+  position: absolute;
+  top: 12px;
+  width: 4px;
+  height: 5px;
+  background: #18251d;
+}
+
+.playerEyeLeft {
+  left: 8px;
+}
+
+.playerEyeRight {
+  right: 8px;
+}
+
+.playerBody {
+  position: relative;
+  z-index: 2;
+  width: 35px;
+  height: 30px;
+  margin-top: -2px;
+  border-radius: 7px;
+  background: #437cc2;
+}
+
+.playerBody::before,
+.playerBody::after {
+  position: absolute;
+  top: 4px;
+  width: 9px;
+  height: 21px;
+  border: 2px solid #18251d;
+  border-radius: 5px;
+  background: #f1b889;
+  content: "";
+}
+
+.playerBody::before {
+  left: -9px;
+}
+
+.playerBody::after {
+  right: -9px;
+}
+
+.playerPack {
+  position: absolute;
+  right: -9px;
+  top: 6px;
+  width: 10px;
+  height: 17px;
+  border: 2px solid #18251d;
+  border-radius: 4px;
+  background: #d94c4c;
+}
+
+.playerLegs {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 12px);
+  gap: 5px;
+  margin-top: -1px;
+}
+
+.playerLegs span {
+  width: 12px;
+  height: 16px;
+  border-radius: 0 0 5px 5px;
+  background: #2d3440;
+}
+
+.playerName {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 2;
+  padding: 3px 7px;
+  border: 1px solid #263c2d;
+  border-radius: 5px;
+  color: #18251d;
+  background: #fffdf2;
+  font-size: 0.68rem;
+  font-weight: 900;
+  transform: translateX(-50%);
+}
+
+.playerWalking .playerFigure {
+  animation: playerStep 0.15s steps(2, end) infinite;
+}
+
+.playerWalking .playerLegs span:first-child {
+  transform: translateY(2px);
+}
+
+.playerWalking .playerLegs span:last-child {
+  transform: translateY(-2px);
+}
+
+.playerLeft .playerFigure {
+  transform: translateX(-2px);
+}
+
+.playerRight .playerFigure {
+  transform: translateX(2px);
+}
+
+.playerUp .playerEyeLeft,
+.playerUp .playerEyeRight {
+  display: none;
+}
+
+.playerUp .playerHair {
+  top: -4px;
+  height: 20px;
+}
+
+.interactionPrompt {
+  position: absolute;
+  z-index: 14;
+  max-width: min(320px, calc(100% - 32px));
+  padding: 8px 10px;
+  border: 2px solid #263c2d;
+  border-radius: 7px;
+  color: #18251d;
+  background: #fffdf2;
+  box-shadow: 0 4px 0 #263c2d;
+  font-size: 0.78rem;
+  font-weight: 900;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+}
+
+.interactionPrompt:hover {
+  background: #ffe28a;
+}
+
+.dpad {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 15;
+  display: grid;
+  grid-template-columns: 42px 42px 42px 54px;
+  grid-template-rows: 42px 42px;
+  gap: 5px;
+}
+
+.dpad button {
+  min-width: 0;
+  min-height: 0;
+  border: 2px solid #263c2d;
+  border-radius: 7px;
+  color: #18251d;
+  background: rgba(255, 253, 242, 0.92);
+  box-shadow: 0 3px 0 #263c2d;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.dpad button:hover:not(:disabled) {
+  background: #ffe28a;
+}
+
+.dpad button:disabled {
+  color: #8d9b8f;
+  background: rgba(246, 241, 221, 0.74);
+  cursor: not-allowed;
+}
+
+.dpadHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dpadUp {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dpadLeft {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.dpadRight {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.dpadDown {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.actionButton {
+  grid-column: 4;
+  grid-row: 1 / 3;
+  border-radius: 999px;
+  font-size: 1.15rem;
+}
+
+.legend {
+  position: absolute;
+  right: 12px;
+  top: 72px;
+  z-index: 16;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: min(520px, calc(100% - 24px));
+  justify-content: flex-end;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+  font-size: 0.82rem;
+}
+
+.legendItem i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #263c2d;
+  border-radius: 50%;
+}
+
+.emptyWorld {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  z-index: 4;
+  display: grid;
+  width: min(360px, calc(100% - 32px));
+  justify-items: center;
+  gap: 8px;
+  padding: 18px;
+  border: 2px solid #263c2d;
+  border-radius: 8px;
+  background: #fffdf2;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.emptyMachine {
+  width: 58px;
+  height: 44px;
+  border: 2px solid #18251d;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, #d94c4c 0 22%, transparent 23%),
+    linear-gradient(90deg, transparent 0 44%, #437cc2 45% 64%, transparent 65%),
+    #f2c14e;
+}
+
+.dialogLayer {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  z-index: 24;
+  width: min(900px, calc(100% - 32px));
+  max-height: min(390px, calc(100% - 96px));
+  padding: 15px 56px 15px 16px;
+  overflow: hidden;
+  border: 3px solid #263c2d;
+  border-radius: 8px;
+  background: rgba(255, 253, 242, 0.96);
+  box-shadow: 0 7px 0 #263c2d;
+  transform: translateX(-50%);
+}
+
+.dialogClose {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid #263c2d;
+  border-radius: 50%;
+  color: #18251d;
+  background: #fff7d1;
+  box-shadow: 0 3px 0 #263c2d;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.dialogClose:hover {
+  background: #ffe28a;
+}
+
+.inspector {
+  position: sticky;
+  top: 14px;
+  min-width: 0;
+  padding: 14px;
+}
+
+.inspectorContent {
+  display: grid;
+  gap: 10px;
+}
+
+.dialogLayer .inspectorContent {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.inspectorTitle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.inspectorTitle span,
+.inspectorTitle h2 {
+  grid-column: 1 / 2;
+}
+
+.inspectorTitle h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.05;
+}
+
+.statusBadge {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding: 7px 9px;
+  border: 1px solid #263c2d;
+  border-radius: 6px;
+  color: #fffdf2;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.inspectorCopy,
+.noteBlock p,
+.signalRow p,
+.promptStack p,
+.emptyLine {
+  margin: 0;
+  color: #4f6257;
+  line-height: 1.45;
+}
+
+.dialogLayer .inspectorCopy,
+.dialogLayer .noteBlock p,
+.dialogLayer .emptyLine {
+  font-size: 0.9rem;
+  line-height: 1.32;
+}
+
+.energyMeter {
+  height: 16px;
+  overflow: hidden;
+  border: 2px solid #263c2d;
+  border-radius: 6px;
+  background: #f6f1dd;
+}
+
+.energyMeter span {
+  display: block;
+  width: var(--meter);
+  height: 100%;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.28) 2px, transparent 2px),
+    #2e9d67;
+  background-size: 14px 14px;
+}
+
+.inspector .detailGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dialogLayer .detailGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dialogLayer .detailRow {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.noteBlock {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+}
+
+.dialogLayer .noteBlock,
+.dialogLayer .talkBox,
+.dialogLayer .npcForm {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.noteBlock strong {
+  overflow-wrap: anywhere;
+}
+
+.timelineMini,
+.platformList,
+.signalList,
+.promptStack {
+  display: grid;
+  gap: 8px;
+}
+
+.timelineMini article,
+.platformList article,
+.promptStack article {
+  display: grid;
+  gap: 4px;
+  padding: 9px;
+  border: 1px solid #c6b985;
+  border-radius: 6px;
+  background: #fffdf2;
+}
+
+.timelineMini strong,
+.timelineMini p,
+.platformList strong,
+.promptStack span,
+.promptStack p {
+  overflow-wrap: anywhere;
+}
+
+.platformList article {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.platformList small {
+  grid-column: 1 / -1;
+  color: #647268;
+}
+
+.bottomLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.72fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.logbook,
+.conversationDock {
+  min-width: 0;
+  padding: 14px;
+}
+
+.sectionHead {
+  display: grid;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+
+.signalRow {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 10px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+}
+
+.signalType {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 4px 6px;
+  border: 1px solid #263c2d;
+  border-radius: 6px;
+  color: #fffdf2;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.signalRow div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.signalRow strong,
+.signalRow p,
+.signalRow small {
+  overflow-wrap: anywhere;
+}
+
+.signalRow small {
+  color: #647268;
+}
+
+.messageForm {
+  display: grid;
+  gap: 10px;
+}
+
+.messageForm label {
+  display: grid;
+  gap: 5px;
+  color: #4f6257;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.messageForm select,
+.messageForm textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #263c2d;
+  border-radius: 6px;
+  background: #fffdf2;
+  color: #18251d;
+}
+
+.messageForm select {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+.messageForm textarea {
+  resize: vertical;
+  padding: 10px;
+}
+
+.messageForm button {
+  justify-self: start;
+  padding: 0 14px;
+  font-weight: 800;
+}
+
+.primaryAction,
+.npcForm button,
+.talkForm button {
+  min-height: 40px;
+  border: 2px solid #263c2d;
+  border-radius: 7px;
+  color: #fffdf2;
+  background: #276f55;
+  box-shadow: 0 4px 0 #263c2d;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.primaryAction:hover,
+.npcForm button:hover:not(:disabled),
+.talkForm button:hover:not(:disabled) {
+  background: #2e9d67;
+}
+
+.primaryAction {
+  justify-self: start;
+  padding: 0 14px;
+}
+
+.npcForm button:disabled,
+.talkForm button:disabled {
+  background: #79827b;
+  cursor: not-allowed;
+}
+
+.actionNote {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  color: #263c2d;
+  background: #fff7d1;
+  line-height: 1.45;
+}
+
+.npcForm,
+.talkBox,
+.talkForm {
+  display: grid;
+  gap: 10px;
+}
+
+.npcForm {
+  padding: 10px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+}
+
+.dialogLayer .npcForm {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+}
+
+.dialogLayer .npcForm label:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.npcForm label,
+.talkForm label {
+  display: grid;
+  gap: 5px;
+  color: #4f6257;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.npcForm input,
+.npcForm textarea,
+.talkForm textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #263c2d;
+  border-radius: 6px;
+  background: #fffdf2;
+  color: #18251d;
+}
+
+.npcForm input {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+.npcForm textarea,
+.talkForm textarea {
+  resize: none;
+  padding: 10px;
+}
+
+.talkBox {
+  padding: 10px;
+  border: 1px solid #9ca98f;
+  border-radius: 6px;
+  background: #f6f1dd;
+}
+
+.talkBox > span {
+  color: #5a6f63;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.talkMessages {
+  display: grid;
+  gap: 8px;
+  overflow: visible;
+}
+
+.youBubble,
+.hermesBubble {
+  width: fit-content;
+  max-width: 92%;
+  margin: 0;
+  padding: 9px 10px;
+  border: 1px solid #263c2d;
+  border-radius: 7px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.youBubble {
+  justify-self: end;
+  background: #e7f2ff;
+}
+
+.hermesBubble {
+  justify-self: start;
+  background: #fffdf2;
+}
+
+.talkForm button {
+  justify-self: start;
+  padding: 0 14px;
+}
+
+.promptStack {
+  margin-top: 12px;
+}
+
+.promptStack span {
+  color: #5a6f63;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+@keyframes workerHop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes workerShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes playerStep {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workerEntity.working .spriteBody,
+  .workerEntity.blocked .spriteBody,
+  .sessionEntity.working .sessionBody,
+  .playerWalking .playerFigure {
+    animation: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .inspector {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 8px;
+  }
+
+  .inspector .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .worldTopline {
+    display: grid;
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    gap: 7px;
+  }
+
+  .worldCounters {
+    justify-content: start;
+  }
+
+  .entityButton {
+    width: 96px;
+  }
+
+  .legend {
+    display: none;
+  }
+
+  .dialogLayer {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: auto;
+    max-height: calc(100% - 104px);
+    padding: 12px 50px 12px 12px;
+    transform: none;
+  }
+
+  .dialogLayer .detailGrid,
+  .dialogLayer .npcForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .signalRow {
+    grid-template-columns: 1fr;
+  }
+
+  .signalType {
+    justify-self: start;
+  }
+}
